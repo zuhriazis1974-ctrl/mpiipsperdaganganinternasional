@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPI IPS Kelas 9 - Perdagangan Internasional</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome untuk Ikon Sentuh -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- CONTAINER UTAMA IFP -->
+    <div class="ifp-container">
+        
+        <!-- HEADER -->
+        <header class="ifp-header">
+            <div class="header-title">
+                <i class="fa-solid fa-globe"></i>
+                <h1>Perdagangan Internasional</h1>
+            </div>
+            <div class="header-subtitle">IPS Kelas 9 SMP - Papan Interaktif Pembelajaran</div>
+        </header>
+
+        <!-- KONTEN UTAMA -->
+        <main class="ifp-main">
+            
+            <!-- MENU UTAMA (HALAMAN AWAL) -->
+            <section id="menu-view" class="view active">
+                <div class="welcome-banner">
+                    <h2>Selamat Datang di Modul Interaktif!</h2>
+                    <p>Sentuh salah satu menu di bawah untuk mulai menjelajahi materi pembelajaran.</p>
+                </div>
+                <div class="menu-grid">
+                    <button class="menu-btn" onclick="switchView('materi-1')">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>1. Pengertian & Faktor</span>
+                    </button>
+                    <button class="menu-btn" onclick="switchView('materi-2')">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <span>2. Manfaat & Hambatan</span>
+                    </button>
+                    <button class="menu-btn" onclick="switchView('materi-3')">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <span>3. Kebijakan & Devisa</span>
+                    </button>
+                    <button class="menu-btn quiz" onclick="switchView('materi-quiz')">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                        <span>Kuis Interaktif</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- MATERI 1: PENGERTIAN & FAKTOR -->
+            <section id="materi-1" class="view">
+                <div class="content-card">
+                    <h2>Konsep & Faktor Pendorong</h2>
+                    <div class="content-body">
+                        <p><strong>Perdagangan Internasional</strong> adalah proses pertukaran barang dan jasa antara dua negara atau lebih dengan tujuan mencapai keuntungan/laba.</p>
+                        <div class="highlight-box">
+                            <h3>Faktor Pendorong Utama:</h3>
+                            <ul>
+                                <li>Perbedaan sumber daya alam antarnegara.</li>
+                                <li>Perbedaan tingkat teknologi dan kualitas tenaga kerja.</li>
+                                <li>Keinginan membuka kerja sama, hubungan politik, dan memperluas pasar.</li>
+                                <li>Perbedaan iklim, selera, dan budaya.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="back-btn" onclick="switchView('menu-view')"><i class="fa-solid fa-arrow-left"></i> Kembali ke Menu</button>
+                </div>
+            </section>
+
+            <!-- MATERI 2: MANFAAT & HAMBATAN -->
+            <section id="materi-2" class="view">
+                <div class="content-card">
+                    <h2>Manfaat & Hambatan Perdagangan Internasional</h2>
+                    <div class="dual-column">
+                        <div class="box benefit">
+                            <h3><i class="fa-solid fa-thumbs-up"></i> Manfaat</h3>
+                            <ul>
+                                <li>Memperoleh barang yang tidak dapat diproduksi di negeri sendiri.</li>
+                                <li>Memperluas pasar produk dalam negeri.</li>
+                                <li>Meningkatkan devisa negara.</li>
+                                <li>Transfer teknologi modern.</li>
+                            </ul>
+                        </div>
+                        <div class="box barrier">
+                            <h3><i class="fa-solid fa-triangle-exclamation"></i> Hambatan</h3>
+                            <ul>
+                                <li>Perbedaan mata uang asing.</li>
+                                <li>Kebijakan proteksi (tarif/bea masuk) dari suatu negara.</li>
+                                <li>Proses birokrasi dan regulasi ekspor-impor yang panjang.</li>
+                                <li>Adanya ketidakstabilan politik dan keamanan dunia.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="back-btn" onclick="switchView('menu-view')"><i class="fa-solid fa-arrow-left"></i> Kembali ke Menu</button>
+                </div>
+            </section>
+
+            <!-- MATERI 3: KEBIJAKAN & DEVISA -->
+            <section id="materi-3" class="view">
+                <div class="content-card">
+                    <h2>Kebijakan Perdagangan & Devisa</h2>
+                    <div class="content-body">
+                        <p>Pemerintah di berbagai negara menerapkan kebijakan tertentu untuk melindungi industri lokal atau meningkatkan devisa:</p>
+                        <div class="policy-grid">
+                            <div class="policy-card">
+                                <strong>Tarif & Kuota</strong>
+                                <p>Bea masuk untuk produk luar serta pembatasan jumlah kuota impor.</p>
+                            </div>
+                            <div class="policy-card">
+                                <strong>Subsidi</strong>
+                                <p>Bantuan pemerintah kepada produsen lokal agar mampu bersaing.</p>
+                            </div>
+                            <div class="policy-card">
+                                <strong>Devisa Negara</strong>
+                                <p>Semua alat pembayaran luar negeri yang diterima oleh bank sentral.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="back-btn" onclick="switchView('menu-view')"><i class="fa-solid fa-arrow-left"></i> Kembali ke Menu</button>
+                </div>
+            </section>
+
+            <!-- KUIS INTERAKTIF -->
+            <section id="materi-quiz" class="view">
+                <div class="content-card quiz-card">
+                    <h2>Kuis Interaktif Papan Pintar</h2>
+                    <div id="quiz-container">
+                        <div id="question-text" class="q-text">Pertanyaan akan muncul di sini...</div>
+                        <div id="options-container" class="options-grid">
+                            <!-- Opsi Pilihan Ganda -->
+                        </div>
+                        <div id="quiz-feedback" class="feedback"></div>
+                    </div>
+                    <button class="back-btn" onclick="resetQuiz(); switchView('menu-view');"><i class="fa-solid fa-arrow-left"></i> Kembali ke Menu</button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER NAVIGASI CEPAT -->
+        <footer class="ifp-footer">
+            <button class="footer-home" onclick="switchView('menu-view')"><i class="fa-solid fa-house"></i> Beranda</button>
+            <div class="footer-info">Media Pembelajaran Interaktif IFP - SMPN Kelas 9</div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

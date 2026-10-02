@@ -1,0 +1,110 @@
+// Navigasi antar halaman / view
+function switchView(viewId) {
+    const views = document.querySelectorAll('.view');
+    views.forEach(v => v.classList.remove('active'));
+
+    const targetView = document.getElementById(viewId);
+    if (targetView) {
+        targetView.classList.add('active');
+    }
+
+    // Jika masuk ke kuis, inisialisasi kuis
+    if (viewId === 'materi-quiz') {
+        loadQuestion();
+    }
+}
+
+/* LOGIKA KUIS INTERAKTIF */
+const quizData = [
+    {
+        question: "1. Apa tujuan utama dilakukannya perdagangan internasional bagi suatu negara?",
+        options: [
+            "Memperbanyak musuh politik",
+            "Mencapai keuntungan dan memenuhi kebutuhan",
+            "Menghabiskan anggaran belanja negara",
+            "Membatasi interaksi antar bangsa"
+        ],
+        correct: 1
+    },
+    {
+        question: "2. Kebijakan pemerintah berupa pembatasan jumlah fisik barang impor yang masuk disebut...",
+        options: [
+            "Tarif",
+            "Subsidi",
+            "Kuota",
+            "Devisa"
+        ],
+        correct: 2
+    },
+    {
+        question: "3. Mata uang asing yang sah dan diterima secara internasional sebagai alat pembayaran disebut...",
+        options: [
+            "Devisa",
+            "Saham",
+            "Obligasi",
+            "Komoditas"
+        ],
+        correct: 0
+    }
+];
+
+let currentQuestionIndex = 0;
+
+function loadQuestion() {
+    const q = quizData[currentQuestionIndex];
+    const qText = document.getElementById('question-text');
+    const optionsContainer = document.getElementById('options-container');
+    const feedback = document.getElementById('quiz-feedback');
+
+    qText.textContent = q.question;
+    optionsContainer.innerHTML = '';
+    feedback.textContent = '';
+
+    q.options.forEach((option, index) => {
+        const btn = document.createElement('button');
+        btn.classList.add('option-btn');
+        btn.textContent = option;
+        btn.onclick = () => checkAnswer(index);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+function checkAnswer(selectedIndex) {
+    const q = quizData[currentQuestionIndex];
+    const feedback = document.getElementById('quiz-feedback');
+    const optionBtns = document.querySelectorAll('.option-btn');
+
+    // Nonaktifkan tombol setelah dipilih
+    optionBtns.forEach(btn => btn.disabled = true);
+
+    if (selectedIndex === q.correct) {
+        feedback.textContent = "✅ Benar! Hebat sekali anak-anak!";
+        feedback.style.color = "#22c55e";
+    } else {
+        feedback.textContent = "❌ Kurang tepat. Mari coba pertanyaan berikutnya!";
+        feedback.style.color = "#ef4444";
+    }
+
+    // Lanjut ke soal berikutnya setelah jeda 2 detik
+    setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizData.length) {
+            loadQuestion();
+        } else {
+            document.getElementById('quiz-container').innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <i class="fa-solid fa-trophy" style="font-size: 4rem; color: #f59e0b; margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 2rem; color: #f8fafc; margin-bottom: 10px;">Kuis Selesai!</h3>
+                    <p style="font-size: 1.3rem; color: #94a3b8;">Terima kasih telah berpartisipasi aktif dalam pembelajaran hari ini.</p>
+                </div>
+            `;
+        }
+    }, 2000);
+}
+
+function resetQuiz() {
+    currentQuestionIndex = 0;
+    // Mengembalikan struktur container kuis jika sebelumnya selesai
+    const quizCard = document.querySelector('.quiz-card');
+    // Reload halaman kuis sederhana dengan merefresh elemen internal jika diperlukan
+}
